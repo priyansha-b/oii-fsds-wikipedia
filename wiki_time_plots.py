@@ -73,7 +73,7 @@ def create_time_series_plots_raw(df, article_name, output_dir=None):
     fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=DEFAULT_FIGSIZE)
     fig.suptitle(f'Revision Activity for {article_name}', fontsize=16, y=0.95)
     
- # Weekly plot
+    # Weekly plot
     weekly_counts = df.resample('W', on='timestamp')['revision_id'].count()
     ax1.plot(weekly_counts.index, weekly_counts.values)
     ax1.set_title('Weekly Revision Count')
@@ -120,9 +120,9 @@ def create_time_series_plots_with_ma(df, article_name, output_dir=None):
     """Create three time series plots with moving averages."""
     set_plot_style()
         
-# Create figure
+    # Create figure
     fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(15, 18))
-    # fig.suptitle(f'Revision Activity for {article_name}\nwith Moving Averages', fontsize=16, y=0.95)
+    fig.suptitle(f'Revision Activity for {article_name}\nwith Moving Averages', fontsize=16, y=0.95)
     
     # Weekly plot with 4-week moving average
     weekly_counts = df.resample('W', on='timestamp')['revision_id'].count()
